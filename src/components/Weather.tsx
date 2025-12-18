@@ -57,15 +57,16 @@ function Weather() {
         if (+new Date() - +currentDate < 1000) {
           setTimeout(() => {
             setIsLoading(false);
-          }, 1_00000);
+          }, 500);
         } else {
           setIsLoading(false);
         }
       });
   }, [lat, lon]);
-  if (isLoading) {
-    return <Loader />;
+  if (!current) {
+    return <div>Ошибка при получении данных</div>;
   }
+
   if (!current) {
     return <div>Ошибка при получении данных</div>;
   }
@@ -92,6 +93,7 @@ function Weather() {
   }
   return (
     <>
+      {isLoading && <Loader />}
       <div className="timezone">
         {timezone}
         <div>{getCelsius(current.temp)} °C</div>
