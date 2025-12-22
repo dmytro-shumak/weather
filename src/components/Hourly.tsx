@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { IHourly } from "../types/weather";
-import { getCelsius, getDate, getDay, getDayOfMonth, getHour, ucFirst } from "../utils/weather";
+import { getCelsius, getDayOfMonth, getHour, ucFirst } from "../utils/weather";
 
 function Hourly(props: IHourly & { timeOffset: number }) {
   return (
